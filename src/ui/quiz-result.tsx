@@ -46,12 +46,9 @@ function Answers({question}: {question: Question}) {
                   color = 'bg-red-600 text-white'
                 }
                 return (
-                <button key={index} 
-                    className={`border border-green-600 rounded-lg p-2 m-2 ${color}`}
-                    disabled={true}
-                    >
+                <div key={index} className={`inline-block border border-green-600 rounded-lg p-2 m-2 ${color}`}>
                     <span dangerouslySetInnerHTML={{__html: answer}}></span>
-                </button>
+                </div>
               )})
             }
         </div>
@@ -67,13 +64,11 @@ function Answers({question}: {question: Question}) {
 function Score({questions}: {questions: Question[]}) {
     const correct = questions.filter(question => question.correct_answer === question.chosenAnswer).length;
     const total = questions.length;
+    const color = correct < 2 ? 'bg-red-600' : (correct < 4 ? 'bg-yellow-500' : 'bg-green-600')
+
     return (
-        <div className='text-center'>
-            <h1 className={`text-2xl font-bold text-white rounded-lg p-2 m-2
-                ${correct < 2 ? 'bg-red-600' : (correct < 4 ? 'bg-yellow-500' : 'bg-green-600')}
-                `}>
-                You scored {correct} out of {total}
-            </h1>
+        <div className={`text-center text-2xl text-white ${color} rounded-sm`}>
+            You scored {correct} out of {total}
         </div>
     )
 }
