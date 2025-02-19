@@ -100,7 +100,7 @@ function SelectDifficulty({selectedDifficulty, handleChange}: {selectedDifficult
       value={selectedDifficulty}
       onChange={handleChange}
     >
-      { selectedDifficulty === '' && <option>Select a category</option> }
+      { selectedDifficulty === '' && <option>Select difficulty</option> }
       <option value='easy'>Easy</option>
       <option value='medium'>Medium</option>
       <option value='hard'>Hard</option>
